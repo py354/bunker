@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <PreferenceCategory app:title="Фоновая музыка">
+
+        <SwitchPreferenceCompat
+            app:key="sync"
+            app:title="Включить музыку" />
+
+
+        <SeekBarPreference
+            app:title="Громкость" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

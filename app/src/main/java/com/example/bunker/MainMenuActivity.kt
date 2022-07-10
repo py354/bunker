@@ -14,8 +14,19 @@ class MainMenuActivity : AppCompatActivity() {
         setContentView(bindging.root)
 
         bindging.settings.setOnClickListener {
-            val i = Intent(this@MainMenuActivity, SettingsActivity::class.java)
-            startActivity(i)
+//            val i = Intent(this@MainMenuActivity, SettingsActivity::class.java)
+//            startActivity(i)
+            supportFragmentManager.beginTransaction().replace(R.id.menu_placeholder, SettingsFragment()).commit()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+        startService(Intent(this, MyService::class.java))
+    }
+
+    override fun onPause() {
+        super.onPause()
+        stopService(Intent(this, MyService::class.java))
     }
 }

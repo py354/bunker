@@ -3,10 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Nikita/Documents/GitHub/bunker/app/src/main/res/layout/activity_main_menu.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_main_menu.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/activity_settings.xml" value="0.33" />
+        <entry key="app/src/main/res/xml/root_preferences.xml" value="0.25133689839572193" />
       </map>
     </option>
   </component>
