@@ -6,75 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".MainMenuActivity">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.52">
-
-        <Button
-            android:id="@+id/new_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="новая игра" />
-
-        <Button
-            android:id="@+id/continue_game"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="продолжить" />
-
-        <Button
-            android:id="@+id/settings"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="настройки" />
-
-        <Button
-            android:id="@+id/stats"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="статистика" />
-    </LinearLayout>
-
-    <TextView
-        android:id="@+id/title_view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Bunker"
-        android:textColor="@color/black"
-        android:textSize="64dp"
-        app:layout_constraintBottom_toTopOf="@+id/linearLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="318dp"
-        android:layout_height="273dp"
-        android:layout_marginBottom="-25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/bunker_image" />
 
     <FrameLayout
-        android:id="@+id/menu_placeholder"
+        android:id="@+id/placeholder"
         android:layout_width="0dp"
-        android:layout_height="542dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.34"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.50">
+        app:layout_constraintTop_toTopOf="parent">
 
     </FrameLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
