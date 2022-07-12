@@ -41,7 +41,7 @@ class MainMenuFragment : Fragment() {
         }
 
         view.findViewById<Button>(R.id.stats).setOnClickListener{
-            // TODO
+            dataModel.message.value = StatsFragment()
         }
     }
 }
