@@ -12,6 +12,7 @@ import com.example.bunker.databinding.FragmentSettingsBinding
 
 class SettingsFragment : Fragment() {
     private val dataModel: DataModel by activityViewModels()
+    private val musicDataModel: MusicDataModel by activityViewModels()
     lateinit var binding: FragmentSettingsBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -20,11 +21,12 @@ class SettingsFragment : Fragment() {
         val sharedPref = view.context.getSharedPreferences("settings", Context.MODE_PRIVATE)
 
         binding.musicBtn.isChecked = sharedPref.getBoolean("music", true)
-        binding.musicBtn.setOnCheckedChangeListener { compoundButton, b ->
+        binding.musicBtn.setOnCheckedChangeListener { _, b ->
             with(sharedPref.edit()) {
                 putBoolean("music", b)
                 apply()
             }
+            musicDataModel.message.value = null
         }
 
         binding.seekBar.progress = sharedPref.getInt("volume", 10)
@@ -34,6 +36,7 @@ class SettingsFragment : Fragment() {
                     putInt("volume", progress)
                     apply()
                 }
+                musicDataModel.message.value = null
             }
 
             override fun onStartTrackingTouch(p0: SeekBar?) {

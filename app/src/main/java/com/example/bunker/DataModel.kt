@@ -9,3 +9,8 @@ open class DataModel: ViewModel() {
         MutableLiveData<Fragment>()
     }
 }
+open class MusicDataModel: ViewModel() {
+    val message: MutableLiveData<Void> by lazy {
+        MutableLiveData<Void>()
+    }
+}
