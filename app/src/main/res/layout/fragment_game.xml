@@ -133,11 +133,27 @@
             android:id="@+id/nextBtn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="следующий день"
             android:backgroundTint="#1b78f0"
+            android:text="следующий день"
+            android:visibility="gone"
             app:layout_constraintBottom_toTopOf="@+id/menuBtn"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/dieText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Вы прожили 13 дней. Это ваш новый рекорд!"
+            android:textColor="#9C27B0"
+            android:textSize="32sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@+id/nextBtn"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/resultText" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

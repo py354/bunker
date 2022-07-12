@@ -25,11 +25,9 @@ class MyService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         val volume = intent?.getIntExtra("volume", 10)
-        Log.d("myservice", "get volume $volume")
         if (volume != null) {
             val fv = volume / 10.0f
             player?.setVolume(fv, fv)
-            Log.d("myservice", "set $fv")
         }
         return 0
     }

@@ -29,6 +29,7 @@ class GameFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         binding.foodBar.progressDrawable.setColorFilter(Color.argb(1.0f, 0.0f, 1.0f, 0.0f), android.graphics.PorterDuff.Mode.SRC_IN)
         binding.healthBar.progressDrawable.setColorFilter(Color.argb(1.0f, 1.0f, 0.0f, 0.0f), android.graphics.PorterDuff.Mode.SRC_IN)
+        binding.dieText.visibility = View.GONE
         binding.menuBtn.setOnClickListener {
             dataModel.message.value = MainMenuFragment()
         }
@@ -82,14 +83,45 @@ class GameFragment : Fragment() {
         }
 
         binding.resultText.visibility = View.VISIBLE
-        binding.nextBtn.visibility = View.VISIBLE
         binding.startText.visibility = View.VISIBLE
         binding.linearLayout3.visibility = View.GONE
         binding.startText.text = result.text
         binding.healthBar.progress = Game.health
         binding.foodBar.progress = Game.food
 
+        if (Game.food <= 0 || Game.health <= 0) {
+
+            val results = Game.getResults(view.context)
+            if (results.size == 0 || Game.day > results.max()) {
+                binding.dieText.text = "Вы прожили ${Game.day} ${getDayAddition(Game.day)}. Это ваш новый рекорд!"
+            } else {
+                val last = results.max() - Game.day + 1
+                binding.dieText.text = "Вы прожили ${Game.day} ${getDayAddition(Game.day)}. До рекорда не хватило $last ${getDayAddition(last)}."
+            }
+            binding.dieText.visibility = View.VISIBLE
+
+
+            Game.saveResult(view.context)
+            Game.newGame()
+            Game.save(view.context.getSharedPreferences("game", Context.MODE_PRIVATE))
+            return
+        } else {
+            binding.nextBtn.visibility = View.VISIBLE
+        }
+
         Game.day += 1
         Game.save(view.context.getSharedPreferences("game", Context.MODE_PRIVATE))
+    }
+
+    fun getDayAddition(i: Int): String {
+        if (i % 100 / 10 == 1) {
+            return "дней"
+        }
+
+        return when (i % 10) {
+            1 -> "день"
+            in 2..4 -> "дня"
+            else -> "дней"
+        }
     }
 }

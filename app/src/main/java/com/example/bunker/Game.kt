@@ -1,7 +1,12 @@
 package com.example.bunker
 
+import android.content.Context
 import android.content.SharedPreferences
+import java.io.BufferedReader
+import java.io.File
+import java.io.FileReader
 import java.util.*
+import kotlin.collections.ArrayList
 import kotlin.random.Random
 
 object Game {
@@ -28,6 +33,31 @@ object Game {
             putInt("health", health)
             apply()
         }
+    }
+
+    fun saveResult(context: Context) {
+        val file = File(context.filesDir, "results.csv")
+        file.appendText("$day,")
+    }
+
+    fun getResults(context: Context): ArrayList<Int> {
+        val results = arrayListOf<Int>()
+        val file = File(context.filesDir, "results.csv")
+        if (!file.exists()) {
+            file.createNewFile()
+        }
+
+        var buff = ""
+        for (char in file.readText()) {
+            if (char == ',') {
+                results.add(buff.toInt())
+                buff = ""
+            } else {
+                buff += char
+            }
+        }
+
+        return results
     }
 }
 
