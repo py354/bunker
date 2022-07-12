@@ -109,6 +109,9 @@ class GameFragment : Fragment() {
             binding.nextBtn.visibility = View.VISIBLE
         }
 
+        if (Game.food > 100) Game.food = 100
+        if (Game.health > 100) Game.health = 100
+
         Game.day += 1
         Game.save(view.context.getSharedPreferences("game", Context.MODE_PRIVATE))
     }
